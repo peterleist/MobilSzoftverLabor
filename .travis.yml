@@ -3,7 +3,7 @@ android:
   components:
     - build-tools-27.0.1
     - android-28
-    - android-21
+    - android-24
     - add-on
     - extra
     - platform-tools
