@@ -1,4 +1,8 @@
 package com.example.mobilszoftverlabor
 
-class Injector {
-}
+import android.app.Activity
+
+val Activity.injector: NoteApplicationComponent
+    get() {
+        return (this.applicationContext as NoteApplication).injector
+    }

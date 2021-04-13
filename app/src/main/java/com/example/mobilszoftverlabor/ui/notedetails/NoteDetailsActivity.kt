@@ -14,6 +14,15 @@ class NoteDetailsActivity: AppCompatActivity(), NoteDetailsScreen {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notedetails)
     }
+    override fun onStart() {
+        super.onStart()
+        noteDetailsPresenter.attachScreen(this)
+    }
+
+    override fun onStop() {
+        noteDetailsPresenter.detachScreen()
+        super.onStop()
+    }
 
     override fun getNote() {
         TODO("Not yet implemented")

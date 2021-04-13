@@ -16,6 +16,16 @@ class AddNoteActivity : AppCompatActivity(), AddNoteScreen {
         setContentView(R.layout.activity_addnote)
     }
 
+    override fun onStart() {
+        super.onStart()
+        addNotePresenter.attachScreen(this)
+    }
+
+    override fun onStop() {
+        addNotePresenter.detachScreen()
+        super.onStop()
+    }
+
     override fun saveNote() {
         TODO("Not yet implemented")
     }

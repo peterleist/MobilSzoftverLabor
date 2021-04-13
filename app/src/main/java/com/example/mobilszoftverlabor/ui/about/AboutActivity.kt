@@ -15,4 +15,13 @@ class AboutActivity: AppCompatActivity(), AboutScreen {
         setContentView(R.layout.activity_about)
     }
 
+    override fun onStart() {
+        super.onStart()
+        aboutPresenter.attachScreen(this)
+    }
+
+    override fun onStop() {
+        aboutPresenter.detachScreen()
+        super.onStop()
+    }
 }

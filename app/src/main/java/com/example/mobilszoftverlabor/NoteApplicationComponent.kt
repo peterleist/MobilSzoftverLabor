@@ -8,6 +8,6 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [UIModule::class, InteractorModule::class])
-interface AppointmentApplicationComponent {
+interface NoteApplicationComponent {
     fun inject(mainActivity: MainActivity)
 }

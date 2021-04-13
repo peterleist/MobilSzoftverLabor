@@ -16,6 +16,16 @@ class MainActivity : AppCompatActivity(), MainScreen {
         setContentView(R.layout.activity_main)
     }
 
+    override fun onStart() {
+        super.onStart()
+        mainPresenter.attachScreen(this)
+    }
+
+    override fun onStop() {
+        mainPresenter.detachScreen()
+        super.onStop()
+    }
+
     override fun showNotes() {
         TODO("Not yet implemented")
     }
