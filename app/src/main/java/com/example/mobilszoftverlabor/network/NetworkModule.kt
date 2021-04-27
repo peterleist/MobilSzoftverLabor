@@ -20,12 +20,12 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideAppointmentsApi(client: OkHttpClient): NotesAPI {
+    fun provideAppointmentsApi(client: OkHttpClient): NoteApi {
         val retrofit = Retrofit.Builder()
             .client(client)
             .baseUrl(NetworkConfig.API_ENDPOINT_ADDRESS)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofit.create(NotesAPI::class.java)
+        return retrofit.create(NoteApi::class.java)
     }
 }

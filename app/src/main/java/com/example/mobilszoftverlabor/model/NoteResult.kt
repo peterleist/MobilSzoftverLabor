@@ -11,20 +11,24 @@
  */
 package com.example.mobilszoftverlabor.model
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
 import javax.annotation.Generated
-
 
 @Generated(
     value = ["io.swagger.codegen.v3.generators.java.JavaClientCodegen"],
     date = "2021-04-27T19:36:05.724396400+02:00[Europe/Prague]"
 )
-@Entity(tableName = "note")
-data class Note (
+data class NoteResult (
 
     @SerializedName("_id")
     var id: String? = null,
+
+    @SerializedName("updatedAt")
+    var updatedAt: String? = null,
+
+    @SerializedName("createdAt")
+    var createdAt: String? = null,
 
     @SerializedName("title")
     var title: String? = null,
@@ -32,4 +36,7 @@ data class Note (
     @SerializedName("content")
     var content: String? = null,
 
-)
+    @SerializedName("__v")
+    var v: BigDecimal? = null,
+
+    )
