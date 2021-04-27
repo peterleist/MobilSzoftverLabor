@@ -11,6 +11,7 @@
  */
 package com.example.mobilszoftverlabor.model
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 import javax.annotation.Generated
@@ -19,6 +20,7 @@ import javax.annotation.Generated
     value = ["io.swagger.codegen.v3.generators.java.JavaClientCodegen"],
     date = "2021-04-27T19:36:05.724396400+02:00[Europe/Prague]"
 )
+@Entity(tableName = "note")
 data class NoteResult (
 
     @SerializedName("_id")
