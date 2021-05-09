@@ -2,34 +2,47 @@ package com.example.mobilszoftverlabor.mock
 
 import com.example.mobilszoftverlabor.data.NoteDAO
 import com.example.mobilszoftverlabor.model.Note
+import com.example.mobilszoftverlabor.model.NoteResult
+import java.math.BigDecimal
 
 class MockNoteDAO : NoteDAO {
 
-    override fun getNotes(): List<Note> {
+    override fun getNotes(): List<NoteResult> {
         return listOf(
-            Note("6065e2723a227d5d50d472cd"
-                ,"id1"
-                , "Appointment1"
+            NoteResult("6065dde30927064ed860fb2e",
+                "2021-05-09T17:52:15.973Z",
+                "2021-05-09T17:52:15.973Z",
+                "Test",
+                "Test",
+                BigDecimal(0)
+
             )
         )
     }
 
-    override fun getSNote(id: String): Note {
-        return Note("6065e2723a227d5d50d472cd"
-            ,"id1"
-            , "Appointment1"
+    override fun getSNote(id: String): NoteResult {
+        return NoteResult("6065dde30927064ed860fb2e",
+            "2021-05-09T17:52:15.973Z",
+            "2021-05-09T17:52:15.973Z",
+            "Test",
+            "Test",
+            BigDecimal(0)
         )
     }
 
-    override fun insertNote(vararg note: Note) {
+    override fun insertNote(vararg note: NoteResult) {
         TODO("Not yet implemented")
     }
 
-    override fun deleteNote(vararg note: Note) {
+    override fun insertNotes(notes: List<NoteResult>) {
         TODO("Not yet implemented")
     }
 
-    override fun updateNote(vararg note: Note) {
+    override fun deleteNote(vararg note: NoteResult) {
+        TODO("Not yet implemented")
+    }
+
+    override fun updateNote(vararg note: NoteResult) {
         TODO("Not yet implemented")
     }
 }

@@ -10,32 +10,32 @@ import rx.Observable
 
 interface NoteApi {
 
-    @DELETE("note/delete/{noteid}")
+    @DELETE("notes/delete/{noteid}")
     fun deleteNoteDeleteNoteid(
         @Path("noteid") noteid: String?
-    ): Call<ResponseMessage?>?
+    ): Call<ResponseMessage?>
 
 
     @GET("note/{noteid}")
     fun getNoteNoteid(
         @Path("noteid") noteid: String?
-    ): Call<NoteResult?>?
+    ): Call<NoteResult?>
 
 
     @get:GET("notes")
-    val notes: Call<List<NotesResult?>?>?
+    val notes: Call<List<NoteResult>>
 
 
     @Headers("Content-Type:application/json")
     @POST("note/create")
     fun postNoteCreate(
         @Body body: Note?
-    ): Call<ResponseMessage?>?
+    ): Call<ResponseMessage?>
 
 
     @Headers("Content-Type:application/json")
     @PUT("note/update/{noteid}")
     fun putNoteUpdateNoteid(
         @Path("noteid") noteid: String?, @Body body: Note?
-    ): Call<ResponseMessage?>?
+    ): Call<ResponseMessage?>
 }

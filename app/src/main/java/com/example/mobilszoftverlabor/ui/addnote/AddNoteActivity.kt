@@ -1,8 +1,15 @@
 package com.example.mobilszoftverlabor.ui.addnote
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobilszoftverlabor.R
+import com.example.mobilszoftverlabor.injector
+import com.example.mobilszoftverlabor.model.Note
+import com.example.mobilszoftverlabor.ui.main.MainActivity
 import com.example.mobilszoftverlabor.ui.main.MainPresenter
 import javax.inject.Inject
 
@@ -14,6 +21,20 @@ class AddNoteActivity : AppCompatActivity(), AddNoteScreen {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnote)
+        supportActionBar?.hide()
+        injector.inject(this)
+
+        findViewById<Button>(R.id.add_new_note).setOnClickListener {
+            addNotePresenter.addNote(
+                Note(
+                    findViewById<EditText>(R.id.title_edit_new).text.toString(),
+                    findViewById<EditText>(R.id.content_edit_new).text.toString()
+                )
+            )
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
@@ -27,6 +48,9 @@ class AddNoteActivity : AppCompatActivity(), AddNoteScreen {
     }
 
     override fun saveNote() {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext, "Note created", Toast.LENGTH_LONG).show()
+    }
+    override fun showError(errorMsg: String) {
+        Toast.makeText(applicationContext, errorMsg, Toast.LENGTH_LONG).show()
     }
 }

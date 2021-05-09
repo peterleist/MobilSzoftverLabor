@@ -3,6 +3,7 @@ package com.example.mobilszoftverlabor.ui.about
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobilszoftverlabor.R
+import com.example.mobilszoftverlabor.injector
 import javax.inject.Inject
 
 class AboutActivity: AppCompatActivity(), AboutScreen {
@@ -13,6 +14,8 @@ class AboutActivity: AppCompatActivity(), AboutScreen {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
+        supportActionBar?.hide()
+        injector.inject(this)
     }
 
     override fun onStart() {

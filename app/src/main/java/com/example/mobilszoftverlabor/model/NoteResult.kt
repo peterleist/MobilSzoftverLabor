@@ -12,6 +12,7 @@
 package com.example.mobilszoftverlabor.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 import javax.annotation.Generated
@@ -24,7 +25,8 @@ import javax.annotation.Generated
 data class NoteResult (
 
     @SerializedName("_id")
-    var id: String? = null,
+    @PrimaryKey
+    var id: String,
 
     @SerializedName("updatedAt")
     var updatedAt: String? = null,

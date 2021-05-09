@@ -22,9 +22,6 @@ import javax.annotation.Generated
 )
 data class Note (
 
-    @SerializedName("_id")
-    var id: String? = null,
-
     @SerializedName("title")
     var title: String? = null,
 

@@ -1,5 +1,7 @@
 package com.example.mobilszoftverlabor.interactor
 
+import androidx.room.Dao
+import com.example.mobilszoftverlabor.data.NoteDAO
 import com.example.mobilszoftverlabor.interactor.notes.NotesInteractor
 import com.example.mobilszoftverlabor.network.NoteApi
 import dagger.Module
@@ -10,5 +12,5 @@ import javax.inject.Singleton
 class InteractorModule {
     @Provides
     @Singleton
-    fun provideAppointmentsInteractor(notesApi: NoteApi) = NotesInteractor(notesApi)
+    fun provideNotesInteractor(notesApi: NoteApi, noteDao: NoteDAO) = NotesInteractor(notesApi, noteDao)
 }
