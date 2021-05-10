@@ -62,9 +62,11 @@ class MainActivity : AppCompatActivity(), MainScreen {
         mainPresenter.refreshNotes()
     }
 
-    override fun showNotes(noteList: MutableList<NoteResult>) {
+    override fun showNotes(noteList: MutableList<NoteResult>?) {
         displayedNotes.clear()
-        displayedNotes.addAll(noteList)
+        if (noteList != null) {
+            displayedNotes.addAll(noteList)
+        }
         notesAdapter?.notifyDataSetChanged()
     }
 

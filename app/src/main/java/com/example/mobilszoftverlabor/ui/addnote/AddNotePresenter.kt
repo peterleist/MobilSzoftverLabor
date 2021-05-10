@@ -39,7 +39,7 @@ class AddNotePresenter @Inject constructor(private val executor: Executor, priva
         } else {
             if (screen != null) {
                 if (event.msg != null) {
-                    screen?.saveNote()
+                    screen?.saveNote(event.msg)
                 }
 
             }

@@ -30,19 +30,11 @@ class MockNoteDAO : NoteDAO {
         )
     }
 
-    override fun insertNote(vararg note: NoteResult) {
-        TODO("Not yet implemented")
-    }
+    override fun insertNote(vararg note: NoteResult) {}
 
-    override fun insertNotes(notes: List<NoteResult>) {
-        TODO("Not yet implemented")
-    }
+    override fun insertNotes(notes: List<NoteResult>) {}
 
-    override fun deleteNote(vararg note: NoteResult) {
-        TODO("Not yet implemented")
-    }
+    override fun deleteNote(vararg note: NoteResult) {}
 
-    override fun updateNote(vararg note: NoteResult) {
-        TODO("Not yet implemented")
-    }
+    override fun updateNote(vararg note: NoteResult) {}
 }

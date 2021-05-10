@@ -1,8 +1,10 @@
 package com.example.mobilszoftverlabor.ui.notedetails
 
 import com.example.mobilszoftverlabor.interactor.notes.NotesInteractor
+import com.example.mobilszoftverlabor.interactor.notes.event.DeleteNoteEvent
 import com.example.mobilszoftverlabor.interactor.notes.event.GetNoteEvent
 import com.example.mobilszoftverlabor.interactor.notes.event.GetNotesEvent
+import com.example.mobilszoftverlabor.interactor.notes.event.SaveNoteEvent
 import com.example.mobilszoftverlabor.model.Note
 import com.example.mobilszoftverlabor.model.NoteResult
 import com.example.mobilszoftverlabor.ui.Presenter
@@ -54,6 +56,38 @@ class NoteDetailsPresenter @Inject constructor(private val executor: Executor, p
                     screen?.showNote(event.note as NoteResult)
                 }
 
+            }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEventMainThread(event: DeleteNoteEvent) {
+        if (event.throwable != null) {
+            event.throwable?.printStackTrace()
+            if (screen != null) {
+                screen?.showError(event.throwable?.message.orEmpty())
+            }
+        } else {
+            if (screen != null) {
+                if (event.msg != null) {
+                    screen?.deleteNote(event.msg!!)
+                }
+            }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEventMainThread(event: SaveNoteEvent) {
+        if (event.throwable != null) {
+            event.throwable?.printStackTrace()
+            if (screen != null) {
+                screen?.showError(event.throwable?.message.orEmpty())
+            }
+        } else {
+            if (screen != null) {
+                if (event.msg != null) {
+                    screen?.updateNote(event.msg!!)
+                }
             }
         }
     }

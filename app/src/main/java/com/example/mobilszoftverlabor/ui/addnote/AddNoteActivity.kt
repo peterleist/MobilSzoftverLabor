@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mobilszoftverlabor.R
 import com.example.mobilszoftverlabor.injector
 import com.example.mobilszoftverlabor.model.Note
+import com.example.mobilszoftverlabor.model.ResponseMessage
 import com.example.mobilszoftverlabor.ui.main.MainActivity
 import com.example.mobilszoftverlabor.ui.main.MainPresenter
 import javax.inject.Inject
@@ -47,8 +48,10 @@ class AddNoteActivity : AppCompatActivity(), AddNoteScreen {
         super.onStop()
     }
 
-    override fun saveNote() {
-        Toast.makeText(applicationContext, "Note created", Toast.LENGTH_LONG).show()
+    override fun saveNote(msg: ResponseMessage?) {
+        if (msg != null) {
+            Toast.makeText(applicationContext, msg.message, Toast.LENGTH_LONG).show()
+        }
     }
     override fun showError(errorMsg: String) {
         Toast.makeText(applicationContext, errorMsg, Toast.LENGTH_LONG).show()

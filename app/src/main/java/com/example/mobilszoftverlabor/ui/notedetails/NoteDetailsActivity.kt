@@ -13,6 +13,7 @@ import com.example.mobilszoftverlabor.R
 import com.example.mobilszoftverlabor.injector
 import com.example.mobilszoftverlabor.model.Note
 import com.example.mobilszoftverlabor.model.NoteResult
+import com.example.mobilszoftverlabor.model.ResponseMessage
 import com.example.mobilszoftverlabor.ui.main.MainActivity
 import javax.inject.Inject
 
@@ -80,12 +81,16 @@ class NoteDetailsActivity: AppCompatActivity(), NoteDetailsScreen {
 
     }
 
-    override fun updateNote() {
-        TODO("Not yet implemented")
+    override fun updateNote(msg: ResponseMessage?) {
+        if (msg != null) {
+            Toast.makeText(applicationContext, msg.message, Toast.LENGTH_LONG).show()
+        }
     }
 
-    override fun deleteNote() {
-        TODO("Not yet implemented")
+    override fun deleteNote(msg: ResponseMessage?) {
+        if (msg != null) {
+            Toast.makeText(applicationContext, msg.message, Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun showError(errorMsg: String) {

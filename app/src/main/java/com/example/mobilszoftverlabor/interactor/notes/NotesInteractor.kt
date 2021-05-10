@@ -5,6 +5,7 @@ import com.example.mobilszoftverlabor.data.NoteDAO
 import com.example.mobilszoftverlabor.interactor.notes.event.*
 import com.example.mobilszoftverlabor.model.Note
 import com.example.mobilszoftverlabor.model.NoteResult
+import com.example.mobilszoftverlabor.model.ResponseMessage
 import com.example.mobilszoftverlabor.network.NoteApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
@@ -79,7 +80,7 @@ class NotesInteractor @Inject constructor(private var noteApi: NoteApi, private 
                 throw Exception("Result code is not 200")
             }
             event.code = response.code()
-            event.msg = response.body()
+            event.msg = ResponseMessage("Note updated")
             EventBus.getDefault().post(event)
         }
         catch (e: Exception) {
