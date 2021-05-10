@@ -26,6 +26,6 @@ data class Note (
     var title: String? = null,
 
     @SerializedName("content")
-    var content: String? = null,
+    var content: String? = null
 
 )

@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import com.example.mobilszoftverlabor.model.Note
 import com.example.mobilszoftverlabor.model.NoteResult
 
-@Database(entities = [NoteResult::class], version = 1, exportSchema = false)
+@Database(entities = [NoteResult::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDAO

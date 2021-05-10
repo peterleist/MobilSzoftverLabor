@@ -41,6 +41,6 @@ data class NoteResult (
     var content: String? = null,
 
     @SerializedName("__v")
-    var v: BigDecimal? = null,
+    var v: BigDecimal? = null
 
     )
