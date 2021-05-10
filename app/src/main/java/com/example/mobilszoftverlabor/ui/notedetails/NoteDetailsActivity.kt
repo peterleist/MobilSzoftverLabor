@@ -31,7 +31,7 @@ class NoteDetailsActivity: AppCompatActivity(), NoteDetailsScreen {
         Log.d("Msg", "resume")
 
         findViewById<Button>(R.id.add_new_note).setOnClickListener {
-            displayedNote?.let { it -> noteDetailsPresenter.updateNote(it.id,
+            displayedNote?.let { it1 -> noteDetailsPresenter.updateNote(it1.id,
                 Note(findViewById<EditText>(R.id.title_edit_new).text.toString(),
                     findViewById<EditText>(R.id.content_edit_new).text.toString())
 
@@ -39,7 +39,7 @@ class NoteDetailsActivity: AppCompatActivity(), NoteDetailsScreen {
         }
 
         findViewById<Button>(R.id.delete).setOnClickListener {
-            displayedNote?.let { it -> noteDetailsPresenter.deleteNote(it) }
+            displayedNote?.let { it2 -> noteDetailsPresenter.deleteNote(it2) }
             navigationToMain()
         }
     }
